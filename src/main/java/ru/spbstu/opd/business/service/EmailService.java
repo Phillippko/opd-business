@@ -1,7 +1,8 @@
 package ru.spbstu.opd.business.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.util.Pair;
+
+import ru.spbstu.opd.business.Pair;
 import ru.spbstu.opd.business.model.Lection;
 import ru.spbstu.opd.business.model.Lector;
 import ru.spbstu.opd.business.model.Student;
@@ -9,7 +10,6 @@ import ru.spbstu.opd.business.util.CourseUtil;
 
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Slf4j
 public class EmailService {

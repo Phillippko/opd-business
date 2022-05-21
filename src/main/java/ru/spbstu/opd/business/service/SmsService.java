@@ -1,7 +1,8 @@
 package ru.spbstu.opd.business.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.util.Pair;
+
+import ru.spbstu.opd.business.Pair;
 import ru.spbstu.opd.business.model.Homework;
 import ru.spbstu.opd.business.model.Lection;
 import ru.spbstu.opd.business.model.Lector;

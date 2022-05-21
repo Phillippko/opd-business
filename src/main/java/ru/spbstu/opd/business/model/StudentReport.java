@@ -2,7 +2,8 @@ package ru.spbstu.opd.business.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.data.util.Pair;
+import ru.spbstu.opd.business.Pair;
+
 
 import java.util.List;
 

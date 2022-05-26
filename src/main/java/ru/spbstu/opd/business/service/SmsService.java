@@ -18,7 +18,7 @@ public class SmsService {
 
     private static final long MIN_AVERAGE_MARK = 4;
 
-    void checkMarks(List<Student> studentList, List<Lection> lectionList) {
+    public void checkMarks(List<Student> studentList, List<Lection> lectionList) {
         Map<Lector, List<Lection>> courses = CourseUtil.getCourseToLection(lectionList);
         studentList.forEach(student -> checkMarks(student, courses));
     }

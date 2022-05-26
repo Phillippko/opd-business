@@ -1,10 +1,14 @@
 package ru.spbstu.opd.business.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Homework {
-   private Long id;
+    @EqualsAndHashCode.Include
+
+    private Long id;
 
     private int mark;
 

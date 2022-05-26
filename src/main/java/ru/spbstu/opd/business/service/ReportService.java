@@ -1,12 +1,10 @@
 package ru.spbstu.opd.business.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.json.JsonMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import lombok.extern.slf4j.Slf4j;
 
 import ru.spbstu.opd.business.Pair;
+import ru.spbstu.opd.business.ReportType;
 import ru.spbstu.opd.business.model.Homework;
 import ru.spbstu.opd.business.model.Lection;
 import ru.spbstu.opd.business.model.LectionReport;
@@ -17,36 +15,28 @@ import ru.spbstu.opd.business.util.CourseUtil;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
 public class ReportService {
 
-    String generateStudentReport(Student student, List<Lection> lections, ObjectMapper mapper) {
+    public String generateStudentReport(Student student, List<Lection> lections, ReportType mapperType) {
         StudentReport report = generateStudentReport(student, lections);
         try {
-            return mapper.writeValueAsString(report);
+            return Objects.requireNonNull(mapperType.getMapper()).writeValueAsString(report);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    String generateXmlReport(Student student, List<Lection> lections) {
-        XmlMapper mapper = new XmlMapper();
-        return generateStudentReport(student, lections, mapper);
-    }
 
-    String generateJsonReport(Student student, List<Lection> lections) {
-        JsonMapper mapper = new JsonMapper();
-        return generateStudentReport(student, lections, mapper);
-    }
-
-    String generateLectionReport(Lection lection, ObjectMapper mapper) {
+    public String generateLectionReport(Lection lection, ReportType mapperType) {
         LectionReport report = generateStudentReport(lection);
         try {
-            return mapper.writeValueAsString(report);
+            return mapperType.getMapper().writeValueAsString(report);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
